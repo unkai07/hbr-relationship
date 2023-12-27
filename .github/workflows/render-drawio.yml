@@ -6,7 +6,7 @@ on:
       - master
     paths:
       - "**.drawio"
-      - .github/workflows/drawio-export.yml
+      - .github/workflows/render-drawio.yml
 
 jobs:
   build:
