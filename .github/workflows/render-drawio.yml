@@ -10,19 +10,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
 
     - uses: severgroup-tt/actions-drawio-cli@v0.0.2
       with:
-        source: hbr.drawio
-        destination: hbr-relationship.png
+        source: ./hbr.drawio
+        destination: ./hbr-relationship.png
     
     - uses: stefanzweifel/git-auto-commit-action@v5
       with:
+        file_pattern: ./*.png
         commit_message: "Update hbr-relationship.png"
         commit_options: '--no-verify --signoff'
-        repository: ${{ github.repository }}
         commit_user_name: ${{ github.actor }}
         commit_user_email: ${{ github.actor }}@users.noreply.github.com
         commit_author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
