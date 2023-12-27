@@ -1,0 +1,18 @@
+name: Render Drawio
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Convert test file to png image
+      uses: Burnett01/actions-drawio@1.2
+      with:
+        src: ./hbr.drawio
+        dest: ./hbr-relationship.png
