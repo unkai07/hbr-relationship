@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+    paths:
+      - "**.drawio"
+      - .github/workflows/drawio-export.yml
 
 jobs:
   build:
@@ -14,10 +17,11 @@ jobs:
       with:
         ref: ${{ github.head_ref }}
 
-    - uses: severgroup-tt/actions-drawio-cli@v0.0.2
+    - uses: rlespinasse/drawio-export-action@v2
       with:
-        source: ./hbr.drawio
-        destination: ./hbr-relationship.png
+        format: png
+        path: ./hbr.drawio
+        output: ./hbr-relationship.png
     
     - uses: stefanzweifel/git-auto-commit-action@v5
       with:
