@@ -13,14 +13,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install Drawio CLI
-      run: |
-        sudo apt-get install -y nodejs npm
-        sudo npm install -g @jgraph/drawio
-
-    - name: Render drawio file
-      run: |
-        drawio -x -f png -o ./hbr-relationship.png ./hbr.drawio
+    - uses: severgroup-tt/actions-drawio-cli@v0.0.2
+      with:
+        source: hbr.drawio
+        destination: hbr-relationship.png
     
     - uses: stefanzweifel/git-auto-commit-action@v5
       with:
