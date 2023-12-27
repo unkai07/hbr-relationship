@@ -10,9 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Convert test file to png image
-      uses: Burnett01/actions-drawio@1.2
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Drawio CLI
+      run: |
+        sudo apt-get install -y nodejs npm
+        sudo npm install -g @jgraph/drawio
+
+    - name: Render drawio file
+      run: |
+        drawio -x -f png -o ./hbr-relationship.png ./hbr.drawio
+    
+    - uses: stefanzweifel/git-auto-commit-action@v5
       with:
-        src: ./hbr.drawio
-        dest: ./hbr-relationship.png
+        commit_message: "Update hbr-relationship.png"
+        commit_options: '--no-verify --signoff'
+        repository: ${{ github.repository }}
+        commit_user_name: ${{ github.actor }}
+        commit_user_email: ${{ github.actor }}@users.noreply.github.com
+        commit_author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
