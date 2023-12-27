@@ -21,8 +21,9 @@ jobs:
     - uses: rlespinasse/drawio-export-action@v2
       with:
         format: png
-        path: ./hbr.drawio
-        output: ./hbr-relationship.png
+        path: ./docs
+        output: ../images
+        remove-page-suffix: true
     
     - name: Get author and committer info from HEAD commit
       uses: rlespinasse/git-commit-data-action@v1
