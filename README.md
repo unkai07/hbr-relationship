@@ -8,7 +8,7 @@
 本关系图遵循 CC BY-SA-NC 4.0 协议提供。
 角色头像使用了 [hbr.quest](https://hbr.quest) 收集的素材，如侵权请联系作者删除。
 
-![关系图](./images/hbr-relationship.png)
+![关系图](./images/hbr.png)
 
 ## 编辑
 
