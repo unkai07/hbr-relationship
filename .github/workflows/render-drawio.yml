@@ -24,7 +24,7 @@ jobs:
         substitude="Version [0-9]*\.[0-9]*"
         sed -i "s/${substitude}/Version ${timestamp}/g" docs/hbr.drawio
 
-    - uses: rlespinasse/drawio-export-action@v2
+    - uses: Cloudac7/drawio-export-action
       with:
         format: png
         path: ./docs
