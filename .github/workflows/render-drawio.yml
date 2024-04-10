@@ -8,6 +8,9 @@ on:
       - "**.drawio"
       - .github/workflows/render-drawio.yml
 
+env:
+  TZ: Asia/Shanghai
+
 jobs:
   build:
     runs-on: ubuntu-latest
